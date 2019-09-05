@@ -7,7 +7,7 @@ setInterval(() => {
 }, 3000);*/
 
 function sum(a, b) {
-	return a + b;  
+	return Number(a) + Number(b);  
 }
 
-console.log(sum(5, 8));
+console.log(sum(process.argv[2], process.argv[3]));

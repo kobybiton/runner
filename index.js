@@ -1,13 +1,18 @@
-console.log(process.argv)
+const action = process.argv[2];
+const firstNum = process.argv[3] || 1;
+const secondNum = process.argv[4] || 1;
 
-/*let counter = 0;
-setInterval(() => { 
-	counter++; 
-	console.log(counter) 
-}, 3000);*/
+const actions = {
+	multiply(a, b) {
+		return a * b;
+	},
+	divide(a, b) {
+		return a / b;
+	},
+	add(a, b) {
+		return Number(a) + Number(b);
+	}		
+};
 
-function sum(a, b) {
-	return Number(a) + Number(b);  
-}
-
-console.log(sum(process.argv[2], process.argv[3]));
+const func = actions[action] || actions.multiply;
+console.log(func(firstNum, secondNum));
